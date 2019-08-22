@@ -22,10 +22,11 @@ jobs:
       - image: circleci/node:10-browsers
     steps:
       - run:
-          name: mocha test & cleanup
+          name: test & cleanup
           command: |
             npm install mocha
-            mocha test typescript/test/CodeGeneratorTest.ts
+            npm run prepare
+            npm run test
             rm -r showcase
 
 workflows:
