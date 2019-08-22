@@ -21,9 +21,15 @@ jobs:
     docker:
       - image: circleci/node:10-browsers
     steps:
-      - baseline test
       - run:
           name: mocha test & cleanup
           command: |
             mocha test typescript/test/CodeGeneratorTest.ts
             rm -r showcase
+
+workflows:
+  version: 2.1
+    jobs:
+      - build
+      - baseline_test:
+          requires: build
