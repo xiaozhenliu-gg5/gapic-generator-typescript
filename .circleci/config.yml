@@ -17,7 +17,6 @@ jobs:
             curl -sSL https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip > protobuf/protoc.zip
             unzip -d protobuf protobuf/protoc.zip
             export PATH=$PATH:$(pwd)/protobuf/bin
-            protoc --version
   test:
     docker:
       - image: circleci/node:10-browsers
@@ -28,6 +27,8 @@ jobs:
           command: |
             npm install
             npm run prepare
+            npm run test
+            rm -r showcase
 
 workflows:
   version: 2
