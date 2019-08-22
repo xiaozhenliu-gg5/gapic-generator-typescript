@@ -24,6 +24,7 @@ jobs:
       - run:
           name: mocha test & cleanup
           command: |
+            npm install mocha
             mocha test typescript/test/CodeGeneratorTest.ts
             rm -r showcase
 
