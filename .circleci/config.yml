@@ -27,8 +27,7 @@ jobs:
           command: |
             npm install
             npm run prepare
-            npm run test
-            rm -r showcase
+            protoc --version
 
 workflows:
   version: 2
