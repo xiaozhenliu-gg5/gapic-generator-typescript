@@ -1,14 +1,11 @@
-version: 2
-  jobs:
-    install:
-      docker:
-        - image: circleci/golang:1.12
-      steps:
-        - install protoc dependencies
-        - run:
-            name: install protoc
-            command: |
-              mkdir protobuf
-              curl -sSL https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip > protobuf/protoc.zip
-              unzip -d protobuf protobuf/protoc.zip
-              export PATH=$PATH:$(pwd)/protobuf/bin
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: alpine:3.7
+    steps:
+      - run:
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+            echo 'This is the delivery pipeline'
